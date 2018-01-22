@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Hana
+namespace Hana.Models
 {
-    public class City
+    public class Size
     {
-        public int CityID { get; set; }
+        public int SizeID { get; set; }
+        [Required]
         public string Name { get; set; }
     }
 }

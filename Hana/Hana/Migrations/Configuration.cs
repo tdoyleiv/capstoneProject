@@ -19,13 +19,13 @@ namespace Hana.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //context.State.AddOrUpdate(
+            //  s => s.Name,
+            //  new State { Name = "Alabama" },
+            //  new State { Name = "Brice Lambson" },
+            //  new State { Name = "Rowan Miller" }
+            //);
+
         }
     }
 }

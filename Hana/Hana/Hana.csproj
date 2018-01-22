@@ -195,27 +195,56 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="BillingAddress.cs" />
-    <Compile Include="City.cs" />
+    <Compile Include="Controllers\BillingAddressesController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\CreditCardsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmailAddressesController.cs" />
+    <Compile Include="Controllers\PhoneNumbersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProductTypesController.cs" />
+    <Compile Include="Controllers\ShippingAddressesController.cs" />
+    <Compile Include="Controllers\ShoppingCartsController.cs" />
+    <Compile Include="Controllers\SizesController.cs" />
+    <Compile Include="Controllers\StatesController.cs" />
+    <Compile Include="Controllers\StoresController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Controllers\ZIPsController.cs" />
+    <Compile Include="Migrations\201801222156135_Tables.cs" />
+    <Compile Include="Migrations\201801222156135_Tables.Designer.cs">
+      <DependentUpon>201801222156135_Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BillingAddress.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="EmailAddress.cs" />
+    <Compile Include="Models\CreditCard.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EmailAddress.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801222028354_Init.cs" />
+    <Compile Include="Migrations\201801222028354_Init.Designer.cs">
+      <DependentUpon>201801222028354_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Models\PhoneNumber.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShippingAddress.cs" />
-    <Compile Include="ShoppingCart.cs" />
+    <Compile Include="Models\ShippingAddress.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\Size.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="State.cs" />
-    <Compile Include="ZIP.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\ZIP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -281,6 +310,21 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
+    <Folder Include="Views\BillingAddresses\" />
+    <Folder Include="Views\Cities\" />
+    <Folder Include="Views\CreditCards\" />
+    <Folder Include="Views\Customers\" />
+    <Folder Include="Views\EmailAddresses\" />
+    <Folder Include="Views\PhoneNumbers\" />
+    <Folder Include="Views\Products\" />
+    <Folder Include="Views\ProductTypes\" />
+    <Folder Include="Views\ShippingAddresses\" />
+    <Folder Include="Views\ShoppingCarts\" />
+    <Folder Include="Views\Sizes\" />
+    <Folder Include="Views\States\" />
+    <Folder Include="Views\Stores\" />
+    <Folder Include="Views\Transactions\" />
+    <Folder Include="Views\ZIPs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -289,6 +333,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801222028354_Init.resx">
+      <DependentUpon>201801222028354_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801222156135_Tables.resx">
+      <DependentUpon>201801222156135_Tables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

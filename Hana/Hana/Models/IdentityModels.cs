@@ -29,5 +29,35 @@ namespace Hana.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Hana.Models.BillingAddress> BillingAddresses { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.City> Cities { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.State> States { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.ZIP> ZIPs { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.CreditCard> CreditCards { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.EmailAddress> EmailAddresses { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.PhoneNumber> PhoneNumbers { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.ShippingAddress> ShippingAddresses { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.ShoppingCart> ShoppingCarts { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.ProductType> ProductTypes { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.Size> Sizes { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.Transaction> Transactions { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.Store> Stores { get; set; }
     }
 }
