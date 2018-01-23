@@ -7,13 +7,13 @@ namespace Hana.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Tables : IMigrationMetadata
+    public sealed partial class Recreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Tables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Recreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801222156135_Tables"; }
+            get { return "201801231625578_Recreate"; }
         }
         
         string IMigrationMetadata.Source

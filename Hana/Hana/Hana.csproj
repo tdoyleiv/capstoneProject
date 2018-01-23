@@ -210,9 +210,9 @@
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\ZIPsController.cs" />
-    <Compile Include="Migrations\201801222156135_Tables.cs" />
-    <Compile Include="Migrations\201801222156135_Tables.Designer.cs">
-      <DependentUpon>201801222156135_Tables.cs</DependentUpon>
+    <Compile Include="Migrations\201801231625578_Recreate.cs" />
+    <Compile Include="Migrations\201801231625578_Recreate.Designer.cs">
+      <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\City.cs" />
@@ -338,8 +338,8 @@
     <EmbeddedResource Include="Migrations\201801222028354_Init.resx">
       <DependentUpon>201801222028354_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801222156135_Tables.resx">
-      <DependentUpon>201801222156135_Tables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801231625578_Recreate.resx">
+      <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
