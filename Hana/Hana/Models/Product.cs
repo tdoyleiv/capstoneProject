@@ -13,6 +13,7 @@ namespace Hana.Models
         public ProductType ProductType { get; set; }
         public int ProductTypeID {get; set;}
         public string ProductName { get; set; }
+        [StringLength(500)]
         public string ProductDescription { get; set; }
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }

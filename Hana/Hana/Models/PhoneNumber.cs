@@ -9,8 +9,8 @@ namespace Hana.Models
     public class PhoneNumber
     {
         public int PhoneNumberID { get; set; }
-        [Required]
-        [Phone]
+        [Required(ErrorMessage = "A phone number is required")]
+        [Phone(ErrorMessage = "That is an invalid phone number")]
         public string Number { get; set; }
     }
 }

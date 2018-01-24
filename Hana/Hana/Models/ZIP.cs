@@ -10,6 +10,7 @@ namespace Hana.Models
     {
         public int ZIPID { get; set; }
         [Required]
+        [DataType(DataType.PostalCode)]
         public string Code { get; set; }
     }
 }

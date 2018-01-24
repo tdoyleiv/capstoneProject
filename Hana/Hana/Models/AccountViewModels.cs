@@ -48,12 +48,12 @@ namespace Hana.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "An email address is required for login")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "That is an invalid email address")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "A password is required")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -64,8 +64,8 @@ namespace Hana.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "An email address is required")]
+        [EmailAddress(ErrorMessage = "That is an invalid email address")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -83,8 +83,8 @@ namespace Hana.Models
 
     public class ResetPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "An email address is required")]
+        [EmailAddress(ErrorMessage = "That is an invalid email address")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -104,8 +104,8 @@ namespace Hana.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "An email address is required")]
+        [EmailAddress(ErrorMessage = "That is an invalid email address")]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

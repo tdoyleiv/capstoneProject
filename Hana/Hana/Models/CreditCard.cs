@@ -9,9 +9,9 @@ namespace Hana.Models
     public class CreditCard
     {
         public int CreditCardID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This is a required field")]
         public string Cardholder { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This is a required field")]
         [CreditCard]
         public string CCNumber { get; set; }
         public BillingAddress BillingAddress { get; set; }

@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201801231625578_Recreate.Designer.cs">
       <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801241621317_Update.cs" />
+    <Compile Include="Migrations\201801241621317_Update.Designer.cs">
+      <DependentUpon>201801241621317_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -306,6 +310,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801231625578_Recreate.resx">
       <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241621317_Update.resx">
+      <DependentUpon>201801241621317_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

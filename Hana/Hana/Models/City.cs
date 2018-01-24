@@ -9,7 +9,7 @@ namespace Hana.Models
     public class City
     {
         public int CityID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "This a required field")]
         public string Name { get; set; }
     }
 }
