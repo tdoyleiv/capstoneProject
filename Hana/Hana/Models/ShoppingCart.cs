@@ -9,7 +9,7 @@ namespace Hana.Models
     public class ShoppingCart
     {
         public int ShoppingCartID { get; set; }
-        public ICollection<Product> Contents { get; set; }
+        public virtual ICollection<Product> Contents { get; set; }
         [DataType(DataType.Currency)]
         public decimal Total { get; set; }
     }

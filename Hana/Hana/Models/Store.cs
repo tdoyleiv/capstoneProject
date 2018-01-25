@@ -8,7 +8,7 @@ namespace Hana.Models
     public class Store
     {
         public int StoreID { get; set; }
-        public ICollection<Product> Inventory { get; set; }
-        public ICollection<Transaction> TransactionsList { get; set; }
+        public virtual ICollection<Product> Inventory { get; set; }
+        public virtual ICollection<Transaction> TransactionsList { get; set; }
     }
 }
