@@ -23,13 +23,13 @@ namespace Hana.Models
         }
         public void AddtoCart(Product product)
         {
-            var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.ShoppingCartID == CartID && c.ProductID == product.ProductID);
+            var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.SessionID == CartID && c.ProductID == product.ProductID);
             if (cartItem == null)
             {
                 cartItem = new ShoppingCart
                 {
                     ProductID = product.ProductID,
-                    ShoppingCartID = CartID,
+                    SessionID = CartID,
                     Count = 1,
                     DateCreated = DateTime.Now
                 };
@@ -43,7 +43,7 @@ namespace Hana.Models
         }
         public int RemoveFromCart(int id)
         {
-            var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.ShoppingCartID == CartID && c.ProductID == id);
+            var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.SessionID == CartID && c.ProductID == id);
             int itemCount = 0;
             if (cartItem != null)
             {
@@ -62,7 +62,7 @@ namespace Hana.Models
         }
         public void EmptyCart()
         {
-            var cartItems = db.ShoppingCarts.Where(c => c.ShoppingCartID == CartID);
+            var cartItems = db.ShoppingCarts.Where(c => c.SessionID == CartID);
             foreach (var cartItem in cartItems)
             {
                 db.ShoppingCarts.Remove(cartItem);
@@ -71,16 +71,16 @@ namespace Hana.Models
         }
         public List<ShoppingCart> GetCartItems()
         {
-            return db.ShoppingCarts.Where(c => c.ShoppingCartID == CartID).ToList();
+            return db.ShoppingCarts.Where(c => c.SessionID == CartID).ToList();
         }
         public int GetCount()
         {
-            int? count = (from cartItems in db.ShoppingCarts where cartItems.ShoppingCartID == CartID select (int?) cartItems.Count).Sum();
+            int? count = (from cartItems in db.ShoppingCarts where cartItems.SessionID == CartID select (int?) cartItems.Count).Sum();
             return count ?? 0;
         }
         public decimal GetTotal()
         {
-            decimal? total = (from cartItems in db.ShoppingCarts where cartItems.ShoppingCartID == CartID select (int?)cartItems.Count * cartItems.Product.Price).Sum();
+            decimal? total = (from cartItems in db.ShoppingCarts where cartItems.SessionID == CartID select (int?)cartItems.Count * cartItems.Product.Price).Sum();
             return total ?? decimal.Zero;
         }
         public int CreateOrder(Transaction order)
@@ -121,10 +121,10 @@ namespace Hana.Models
         }
         public void MigrateCart (string userName)
         {
-            var cart = db.ShoppingCarts.Where(c => c.ShoppingCartID == CartID);
+            var cart = db.ShoppingCarts.Where(c => c.SessionID == CartID);
             foreach (ShoppingCart item in cart)
             {
-                item.ShoppingCartID = userName;
+                item.SessionID = userName;
             }
             db.SaveChanges();
         }

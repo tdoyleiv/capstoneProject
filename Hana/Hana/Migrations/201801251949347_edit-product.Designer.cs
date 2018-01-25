@@ -7,13 +7,13 @@ namespace Hana.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class EditProduct : IMigrationMetadata
+    public sealed partial class editproduct : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EditProduct));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(editproduct));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801251540217_Edit Product"; }
+            get { return "201801251949347_edit-product"; }
         }
         
         string IMigrationMetadata.Source

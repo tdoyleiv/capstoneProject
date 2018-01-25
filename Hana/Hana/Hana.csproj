@@ -205,6 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BillingAddressesController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Controllers\ShoppingCartsController.cs" />
     <Compile Include="Controllers\SizesController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
+    <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\ZIPsController.cs" />
@@ -234,9 +236,9 @@
     <Compile Include="Migrations\201801251525337_Edit.Designer.cs">
       <DependentUpon>201801251525337_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801251540217_Edit Product.cs" />
-    <Compile Include="Migrations\201801251540217_Edit Product.Designer.cs">
-      <DependentUpon>201801251540217_Edit Product.cs</DependentUpon>
+    <Compile Include="Migrations\201801251949347_edit-product.cs" />
+    <Compile Include="Migrations\201801251949347_edit-product.Designer.cs">
+      <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -342,6 +344,7 @@
     <Folder Include="Classes\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Views\BillingAddresses\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\Checkout\" />
     <Folder Include="Views\Cities\" />
     <Folder Include="Views\CreditCards\" />
@@ -355,6 +358,7 @@
     <Folder Include="Views\ShoppingCarts\" />
     <Folder Include="Views\Sizes\" />
     <Folder Include="Views\States\" />
+    <Folder Include="Views\StoreFront\" />
     <Folder Include="Views\Stores\" />
     <Folder Include="Views\Transactions\" />
     <Folder Include="Views\ZIPs\" />
@@ -380,8 +384,8 @@
     <EmbeddedResource Include="Migrations\201801251525337_Edit.resx">
       <DependentUpon>201801251525337_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251540217_Edit Product.resx">
-      <DependentUpon>201801251540217_Edit Product.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801251949347_edit-product.resx">
+      <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

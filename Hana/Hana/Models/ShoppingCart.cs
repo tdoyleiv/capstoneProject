@@ -9,7 +9,8 @@ namespace Hana.Models
 {
     public class ShoppingCart
     {
-        public string ShoppingCartID { get; set; }
+        public int ShoppingCartID { get; set; }
+        public string SessionID { get; set; }
         public virtual Product Product { get; set; }
         public int ProductID { get; set; }
         public int Count { get; set; }
