@@ -7,16 +7,15 @@ using System.Web;
 
 namespace Hana.Models
 {
-    public class ShoppingCart
+    public class OrderedProduct
     {
-        public string ShoppingCartID { get; set; }
+        public int OrderedProductID { get; set; }
         public virtual Product Product { get; set; }
+        [Column(Order = 0)]
         public int ProductID { get; set; }
-        public int Count { get; set; }
-        [Column(TypeName = "datetime2")]
-        public DateTime DateCreated { get; set; }
-        [DataType(DataType.Currency)]
-        public decimal Total { get; set; }
+        public virtual Transaction Transaction { get; set; }
+        [Column(Order = 1)]
+        public int TransactionID { get; set; }
+        public int Quantity { get; set; }
     }
-
 }

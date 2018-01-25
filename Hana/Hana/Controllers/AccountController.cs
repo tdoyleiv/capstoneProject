@@ -51,13 +51,17 @@ namespace Hana.Controllers
                 _userManager = value;
             }
         }
-
+        private void MigrateShoppingCart(string userName)
+        {
+            var cart = Cart.GetCart(this.HttpContext);
+            cart.MigrateCart(userName);
+            Session[Cart.CartSessionKey] = userName;
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -155,6 +159,7 @@ namespace Hana.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    MigrateShoppingCart(model.Email);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -392,6 +397,8 @@ namespace Hana.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            var cart = Cart.GetCart(this.HttpContext);
+            cart.EmptyCart();
             return RedirectToAction("Index", "Home");
         }
 

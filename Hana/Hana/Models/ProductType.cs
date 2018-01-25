@@ -10,6 +10,8 @@ namespace Hana.Models
     {
         public int ProductTypeID { get; set; }
         [Required]
+        [Display(Name = "Product Type")]
         public string Name { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

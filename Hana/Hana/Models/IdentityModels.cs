@@ -59,5 +59,7 @@ namespace Hana.Models
         public System.Data.Entity.DbSet<Hana.Models.Transaction> Transactions { get; set; }
 
         public System.Data.Entity.DbSet<Hana.Models.Store> Stores { get; set; }
+
+        public System.Data.Entity.DbSet<Hana.Models.OrderedProduct> OrderedProducts { get; set; }
     }
 }

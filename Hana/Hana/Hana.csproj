@@ -205,10 +205,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BillingAddressesController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmailAddressesController.cs" />
+    <Compile Include="Controllers\OrderedProductsController.cs" />
     <Compile Include="Controllers\PhoneNumbersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
@@ -228,7 +230,16 @@
     <Compile Include="Migrations\201801241621317_Update.Designer.cs">
       <DependentUpon>201801241621317_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801251525337_Edit.cs" />
+    <Compile Include="Migrations\201801251525337_Edit.Designer.cs">
+      <DependentUpon>201801251525337_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801251540217_Edit Product.cs" />
+    <Compile Include="Migrations\201801251540217_Edit Product.Designer.cs">
+      <DependentUpon>201801251540217_Edit Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BillingAddress.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -247,6 +258,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderedProduct.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
@@ -259,6 +271,8 @@
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\ZIP.cs" />
+    <Compile Include="ViewModels\CartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -328,10 +342,12 @@
     <Folder Include="Classes\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Views\BillingAddresses\" />
+    <Folder Include="Views\Checkout\" />
     <Folder Include="Views\Cities\" />
     <Folder Include="Views\CreditCards\" />
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\EmailAddresses\" />
+    <Folder Include="Views\OrderedProducts\" />
     <Folder Include="Views\PhoneNumbers\" />
     <Folder Include="Views\Products\" />
     <Folder Include="Views\ProductTypes\" />
@@ -360,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801241621317_Update.resx">
       <DependentUpon>201801241621317_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251525337_Edit.resx">
+      <DependentUpon>201801251525337_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251540217_Edit Product.resx">
+      <DependentUpon>201801251540217_Edit Product.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

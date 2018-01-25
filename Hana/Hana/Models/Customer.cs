@@ -15,7 +15,7 @@ namespace Hana.Models
         public PhoneNumber PhoneNumber { get; set; }
         public int PhoneNumberID { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
-        public int ShoppingCartID { get; set; }
+        public string ShoppingCartID { get; set; }
         [Required]
         public EmailAddress EmailAddress { get; set; }
         public int EmailAddressID { get; set; }

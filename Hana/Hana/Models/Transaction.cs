@@ -16,6 +16,8 @@ namespace Hana.Models
         public CreditCard CreditCard {get; set; }
         public int CreditCardID { get; set; }
         public virtual ICollection<Product> Purchase { get; set; }
+        public virtual Product Product { get; set; }
+        public int ProductID { get; set; }
         [DataType(DataType.Currency)]
         [Required]
         public decimal Total { get; set; }

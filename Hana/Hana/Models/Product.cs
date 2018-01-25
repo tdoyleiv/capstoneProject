@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -20,6 +21,9 @@ namespace Hana.Models
         public Size Size { get; set; }
         public int SizeID { get; set; }
         public int Quantity { get; set; }
+        [Display(Name = "Updated On")]
+        [Column(TypeName = "datetime2")]
+        public DateTime LastUpdated { get; set; }
         public bool IsSoldOut { get; set; }
     }
 }
