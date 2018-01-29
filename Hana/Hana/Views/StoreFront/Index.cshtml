@@ -1,0 +1,73 @@
+﻿@model Hana.Models.ProductType
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-xs-12 col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+            @if (Model.Name == "Men")
+            {
+                <li class="active">
+                    <a href="~/StoreFront/Index/1">Men's Apparel</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/StoreFront/Index/1">Men's Apparel</a>
+                </li>
+            }
+            @if (Model.Name == "Women")
+            {
+                <li class="active">
+                    <a href="~/StoreFront/Index/2">Women's Apparel</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/StoreFront/Index/2">Women's Apparel</a>
+                </li>
+            }
+            @if (Model.Name == "Accessories")
+            {
+                <li class="active">
+                    <a href="~/StoreFront/Index/3">Accessories</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="~/StoreFront/Index/3">Accessories</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-xs-12 col-md-9">
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-xs-12 col-md-3">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="~/Content/Images/Products/@(product.ProductName).png">
+                        <div class="caption text-center">
+                            <p>
+                                <b>Name:</b> <span>@product.ProductName</span>
+                            </p>
+                            <p>
+                                <b>Price:</b> <span>@product.Price USD</span>
+                            </p>
+                            <p class="text-center">
+                                @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { id = product.ProductID }, new { @class = "btn btn-info" })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

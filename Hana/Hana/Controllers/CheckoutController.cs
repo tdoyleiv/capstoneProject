@@ -19,13 +19,13 @@ namespace Hana.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         const string PromoCode = "JOY";
         // GET: Checkout
-        public ActionResult Address()
+        public ActionResult AddressAndPayment()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Address(FormCollection values)
+        public ActionResult AddressAndPayment(FormCollection values)
         {
             var order = new Transaction();
             TryUpdateModel(order);

@@ -1,0 +1,82 @@
+﻿@model Hana.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<h2>Product Details</h2>
+
+<div>
+    <h4>Viewing details for @Model.ProductName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(m => m.ProductType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.ProductType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.ProductDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.ProductDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.LastUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.LastUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Size.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Size.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.IsSoldOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.IsSoldOut)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
