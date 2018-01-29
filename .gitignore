@@ -327,4 +327,4 @@ Thumbs.db
 
 # Git out!#
 Hana/Hana/Web.config
-Hana/Hana/Keys.cs
+Hana/Hana/Classes/Keys.cs
