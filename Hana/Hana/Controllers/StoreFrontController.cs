@@ -11,8 +11,12 @@ namespace Hana.Controllers
     public class StoreFrontController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        public ActionResult Index()
+        {
+            return View();
+        }
         // GET: StoreFront
-        public ActionResult Index(int? id)
+        public ActionResult Store(int? id)
         {
             if (id == null)
             {

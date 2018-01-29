@@ -223,7 +223,7 @@
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\ZIPsController.cs" />
-    <Compile Include="Keys.cs" />
+    <Compile Include="Classes\Keys.cs" />
     <Compile Include="Migrations\201801231625578_Recreate.cs" />
     <Compile Include="Migrations\201801231625578_Recreate.Designer.cs">
       <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
@@ -345,7 +345,7 @@
     <Content Include="Views\ProductTypes\Index.cshtml" />
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
     <Content Include="Views\Checkout\Complete.cshtml" />
-    <Content Include="Views\StoreFront\HomeIndex.cshtml" />
+    <Content Include="Views\StoreFront\Index.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
@@ -353,11 +353,10 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Cart\CartSummary.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\StoreFront\Index.cshtml" />
+    <Content Include="Views\StoreFront\Store.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Classes\" />
     <Folder Include="Content\Images\Products\" />
     <Folder Include="Views\BillingAddresses\" />
     <Folder Include="Views\Cities\" />
