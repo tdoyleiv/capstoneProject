@@ -211,6 +211,7 @@
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmailAddressesController.cs" />
+    <Compile Include="Controllers\MailGunController.cs" />
     <Compile Include="Controllers\OrderedProductsController.cs" />
     <Compile Include="Controllers\PhoneNumbersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />

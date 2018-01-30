@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,7 +11,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using RestSharp;
+using RestSharp.Authenticators;
 using Hana.Models;
+using Hana.Controllers;
 using Hana.Classes;
 
 namespace Hana
@@ -19,8 +23,20 @@ namespace Hana
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var userName = Keys.SendGridUserName;
+            var sentFrom = Keys.Sender;
+            var password = Keys.SendGridPass;
+            var client = new System.Net.Mail.SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+            client.Port = 587;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(userName, password);
+            client.EnableSsl = true;
+            client.Credentials = credentials;
+            var mail = new System.Net.Mail.MailMessage(sentFrom, message.Destination);
+            mail.Subject = message.Subject;
+            mail.Body = message.Body;
+            return client.SendMailAsync(mail);
         }
     }
 
