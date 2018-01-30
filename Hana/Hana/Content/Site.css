@@ -18,8 +18,36 @@ h1,h2,h3,h4,h5,p,span,th,td,thead,tbody {
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+
+.dl-horizontal {
+  *zoom: 1;
+}
+
+.dl-horizontal:before,
+.dl-horizontal:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.dl-horizontal:after {
+  clear: both;
+}
+
 .dl-horizontal dt {
     white-space: normal;
+    float: left;
+    clear: left;
+    width:280px;
+    margin-bottom: 5px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dl-horizontal dd {
+    margin-bottom: 5px;
+    float: inherit;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

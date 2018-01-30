@@ -36,6 +36,7 @@ namespace Hana
             var mail = new System.Net.Mail.MailMessage(sentFrom, message.Destination);
             mail.Subject = message.Subject;
             mail.Body = message.Body;
+            mail.IsBodyHtml = true;
             return client.SendMailAsync(mail);
         }
     }
@@ -80,7 +81,7 @@ namespace Hana
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+            manager.MaxFailedAccessAttemptsBeforeLockout = 3;
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.

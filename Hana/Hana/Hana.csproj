@@ -355,6 +355,7 @@
     <Content Include="Views\Cart\CartSummary.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\StoreFront\Store.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
