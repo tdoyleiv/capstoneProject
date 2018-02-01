@@ -88,7 +88,6 @@ namespace Hana.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string UserRole { get; set; }
 

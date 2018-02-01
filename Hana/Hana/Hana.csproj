@@ -382,7 +382,6 @@
     <Folder Include="Views\CreditCards\" />
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\EmailAddresses\" />
-    <Folder Include="Views\MailGunHelper\" />
     <Folder Include="Views\OrderedProducts\" />
     <Folder Include="Views\PhoneNumbers\" />
     <Folder Include="Views\ShippingAddresses\" />

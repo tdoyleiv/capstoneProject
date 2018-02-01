@@ -13,7 +13,7 @@
 }
 
 h1,h2,h3,h4,h5,p,span,th,td,thead,tbody {
-    font-family: "Cuprum", sans-serif
+    font-family: "Dosis", sans-serif
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
