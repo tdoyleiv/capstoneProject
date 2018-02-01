@@ -1,5 +1,4 @@
 ﻿@model Hana.Models.Transaction
-
 @{
     ViewBag.Title = "Address and Payment";
 }
@@ -13,6 +12,10 @@
         <h2>Address and Payment</h2>
         <fieldset>
             <legend>Shipping Address</legend>
+            @Html.EditorForModel()
+        </fieldset>
+        <fieldset>
+            <legend>Billing Information</legend>
             @Html.EditorForModel()
         </fieldset>
         <fieldset>

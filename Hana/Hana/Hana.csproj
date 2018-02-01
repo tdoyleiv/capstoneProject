@@ -204,6 +204,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Classes\EmailParameterAssembler.cs" />
+    <Compile Include="Classes\MailGun.cs" />
     <Compile Include="Controllers\BillingAddressesController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
@@ -211,11 +213,11 @@
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmailAddressesController.cs" />
-    <Compile Include="Controllers\MailGunController.cs" />
     <Compile Include="Controllers\OrderedProductsController.cs" />
     <Compile Include="Controllers\PhoneNumbersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProductTypesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\ShippingAddressesController.cs" />
     <Compile Include="Controllers\ShoppingCartsController.cs" />
     <Compile Include="Controllers\SizesController.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ZIPsController.cs" />
     <Compile Include="Classes\Keys.cs" />
     <Compile Include="Migrations\201801231625578_Recreate.cs" />
@@ -240,6 +243,18 @@
     <Compile Include="Migrations\201801251949347_edit-product.cs" />
     <Compile Include="Migrations\201801251949347_edit-product.Designer.cs">
       <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801302056409_ExtendID.cs" />
+    <Compile Include="Migrations\201801302056409_ExtendID.Designer.cs">
+      <DependentUpon>201801302056409_ExtendID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801310013147_OrderNo.cs" />
+    <Compile Include="Migrations\201801310013147_OrderNo.Designer.cs">
+      <DependentUpon>201801310013147_OrderNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312113098_UserForeignKeytoCustomer.cs" />
+    <Compile Include="Migrations\201801312113098_UserForeignKeytoCustomer.Designer.cs">
+      <DependentUpon>201801312113098_UserForeignKeytoCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -356,6 +371,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\StoreFront\Store.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -365,6 +382,7 @@
     <Folder Include="Views\CreditCards\" />
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\EmailAddresses\" />
+    <Folder Include="Views\MailGunHelper\" />
     <Folder Include="Views\OrderedProducts\" />
     <Folder Include="Views\PhoneNumbers\" />
     <Folder Include="Views\ShippingAddresses\" />
@@ -398,6 +416,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801251949347_edit-product.resx">
       <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801302056409_ExtendID.resx">
+      <DependentUpon>201801302056409_ExtendID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801310013147_OrderNo.resx">
+      <DependentUpon>201801310013147_OrderNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312113098_UserForeignKeytoCustomer.resx">
+      <DependentUpon>201801312113098_UserForeignKeytoCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

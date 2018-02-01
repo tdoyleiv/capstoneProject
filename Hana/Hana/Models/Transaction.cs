@@ -15,11 +15,13 @@ namespace Hana.Models
         [Required]
         public CreditCard CreditCard {get; set; }
         public int CreditCardID { get; set; }
+        public ICollection<OrderedProduct> Purchase { get; set; }
         public virtual Product Product { get; set; }
         public int ProductID { get; set; }
         [DataType(DataType.Currency)]
         [Required]
         public decimal Total { get; set; }
         public DateTime Time { get; set; }
+        public Guid OrderNumber { get; set; }
     }
 }

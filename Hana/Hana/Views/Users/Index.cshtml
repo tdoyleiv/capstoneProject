@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Welcome, Administrator.</h1>
+    <h3>
+        @Html.ActionLink("Manage Hana", "Index", "Role")
+    </h3>
+}
+else
+{
+}
+
+

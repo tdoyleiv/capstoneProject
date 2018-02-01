@@ -9,7 +9,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Hana.Classes;
 using Hana.Models;
+using System.Text;
 
 namespace Hana.Controllers
 {
@@ -55,9 +57,16 @@ namespace Hana.Controllers
         }
         public ActionResult Complete(int id)
         {
+            EmailParameterAssembler emailAssembler = new EmailParameterAssembler();
             bool iSValid = db.Transactions.Any(o => o.TransactionID == id && o.Customer.Name == User.Identity.Name);
             if (iSValid)
             {
+                string orderID = emailAssembler.GetOrderID(id);
+                string body = emailAssembler.AssembleOwnerBody(id);
+                string recipient = emailAssembler.GetCustomerEmail(id);
+                string customerBody = emailAssembler.AssembleCustomerBody(id);
+                MailGun.SendOrderDetails(orderID, body);
+                MailGun.SendCustomerConfirmation(recipient, customerBody);
                 return View(id);
             }
             else

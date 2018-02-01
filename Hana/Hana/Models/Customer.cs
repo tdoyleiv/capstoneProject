@@ -9,6 +9,8 @@ namespace Hana.Models
     public class Customer
     {
         public int CustomerID { get; set; }
+        public ApplicationUser User { get; set; }
+        public int UserID { get; set; }
         [Required(ErrorMessage = "This is a required field")]
         public string Name { get; set; }
         [Required]

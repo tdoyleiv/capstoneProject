@@ -44,7 +44,7 @@ namespace Hana.Controllers
             ViewBag.EmailAddressID = new SelectList(db.EmailAddresses, "EmailAddressID", "Name");
             ViewBag.PhoneNumberID = new SelectList(db.PhoneNumbers, "PhoneNumberID", "Number");
             ViewBag.ShippingAddressID = new SelectList(db.ShippingAddresses, "ShippingAddressID", "Street");
-            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "ShoppingCartID");
+            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "SessionID");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace Hana.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerID,Name,PhoneNumberID,ShoppingCartID,EmailAddressID,ShippingAddressID,BillingAddressID,CreditCardID")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerID,UserID,Name,PhoneNumberID,ShoppingCartID,EmailAddressID,ShippingAddressID,BillingAddressID,CreditCardID")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Hana.Controllers
             ViewBag.EmailAddressID = new SelectList(db.EmailAddresses, "EmailAddressID", "Name", customer.EmailAddressID);
             ViewBag.PhoneNumberID = new SelectList(db.PhoneNumbers, "PhoneNumberID", "Number", customer.PhoneNumberID);
             ViewBag.ShippingAddressID = new SelectList(db.ShippingAddresses, "ShippingAddressID", "Street", customer.ShippingAddressID);
-            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "ShoppingCartID", customer.ShoppingCartID);
+            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "SessionID", customer.ShoppingCartID);
             return View(customer);
         }
 
@@ -88,7 +88,7 @@ namespace Hana.Controllers
             ViewBag.EmailAddressID = new SelectList(db.EmailAddresses, "EmailAddressID", "Name", customer.EmailAddressID);
             ViewBag.PhoneNumberID = new SelectList(db.PhoneNumbers, "PhoneNumberID", "Number", customer.PhoneNumberID);
             ViewBag.ShippingAddressID = new SelectList(db.ShippingAddresses, "ShippingAddressID", "Street", customer.ShippingAddressID);
-            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "ShoppingCartID", customer.ShoppingCartID);
+            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "SessionID", customer.ShoppingCartID);
             return View(customer);
         }
 
@@ -97,7 +97,7 @@ namespace Hana.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerID,Name,PhoneNumberID,ShoppingCartID,EmailAddressID,ShippingAddressID,BillingAddressID,CreditCardID")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerID,UserID,Name,PhoneNumberID,ShoppingCartID,EmailAddressID,ShippingAddressID,BillingAddressID,CreditCardID")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace Hana.Controllers
             ViewBag.EmailAddressID = new SelectList(db.EmailAddresses, "EmailAddressID", "Name", customer.EmailAddressID);
             ViewBag.PhoneNumberID = new SelectList(db.PhoneNumbers, "PhoneNumberID", "Number", customer.PhoneNumberID);
             ViewBag.ShippingAddressID = new SelectList(db.ShippingAddresses, "ShippingAddressID", "Street", customer.ShippingAddressID);
-            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "ShoppingCartID", customer.ShoppingCartID);
+            ViewBag.ShoppingCartID = new SelectList(db.ShoppingCarts, "ShoppingCartID", "SessionID", customer.ShoppingCartID);
             return View(customer);
         }
 

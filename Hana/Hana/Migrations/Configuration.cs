@@ -24,7 +24,7 @@ namespace Hana.Migrations
             //
             context.States.AddOrUpdate(
               s => s.PostalCode,
-              new State { Name = "Alabama", PostalCode = "AL" }, 
+              new State { Name = "Alabama", PostalCode = "AL" },
               new State { Name = "Alaska", PostalCode = "AK" },
               new State { Name = "Arizona", PostalCode = "AZ" },
               new State { Name = "Arkansas", PostalCode = "AR" },

@@ -1,10 +1,10 @@
-﻿@model int
+﻿@model Hana.Models.Transaction
 
 @{
     ViewBag.Title = "Checkout Complete";
 }
 <h2>Checkout Complete</h2>
-<p>Thank you for your order! Your order number is: @Model</p>
+<p>Thank you for your order! Your order number is: @Model.OrderNumber</p>
 <p>
     @Html.ActionLink("Return to Home", "Index", "Home")
 </p>

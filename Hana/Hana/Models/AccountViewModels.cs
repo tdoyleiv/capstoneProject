@@ -64,6 +64,14 @@ namespace Hana.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "This is a required field.")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "This is a required field.")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required(ErrorMessage = "An email address is required")]
         [EmailAddress(ErrorMessage = "That is an invalid email address")]
         [Display(Name = "Email")]
@@ -79,6 +87,10 @@ namespace Hana.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        public string UserRole { get; set; }
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }

@@ -96,6 +96,7 @@ namespace Hana.Models
                     Quantity = item.Count
                 };
                 orderTotal += (item.Count * item.Product.Price);
+                order.Purchase.Add(orderedProduct);
                 db.OrderedProducts.Add(orderedProduct);
             }
             order.Total = orderTotal;

@@ -25,7 +25,7 @@ namespace Hana.Controllers
             ProductType productType = db.ProductTypes.Find(id);
             if (productType == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             return View(productType);
         }

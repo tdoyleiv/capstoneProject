@@ -139,39 +139,41 @@ namespace Hana
 
         protected override void Seed(ApplicationDbContext context)
         {
-            InitializeIdentityForEF(context);
+            //InitializeIdentityForEF(context);
             base.Seed(context);
         }
-        public static void InitializeIdentityForEF(ApplicationDbContext db)
-        {
-            var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+        //public static void InitializeIdentityForEF(ApplicationDbContext db)
+        //{
+        //    var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
 
-            const string roleName = "Admin";
-            string name = Keys.Name;
-            string password = Keys.Password;
+        //    const string roleName = "Admin";
+        //    const string firstName = "Hana";
+        //    const string lastName = "Administrator";
+        //    string adminName = Keys.Name;
+        //    string adminPassword = Keys.Password;
 
-            var role = roleManager.FindByName(roleName);
-            if (role == null)
-            {
-                role = new IdentityRole(roleName);
-                var roleResult = roleManager.Create(role);
-            }
+        //    var role = roleManager.FindByName(roleName);
+        //    if (role == null)
+        //    {
+        //        role = new IdentityRole(roleName);
+        //        var roleResult = roleManager.Create(role);
+        //    }
 
-            var user = userManager.FindByName(name);
-            if (user == null)
-            {
-                user = new ApplicationUser { UserName = name, Email = name };
-                var result = userManager.Create(user, password);
-                result = userManager.SetLockoutEnabled(user.Id, false);
-            }
+        //    var user = userManager.FindByName(adminName);
+        //    if (user == null)
+        //    {
+        //        user = new ApplicationUser { UserName = adminName, FirstName = firstName, LastName = lastName, Email = adminName };
+        //        var result = userManager.Create(user, adminPassword);
+        //        result = userManager.SetLockoutEnabled(user.Id, false);
+        //    }
 
-            var rolesForUser = userManager.GetRoles(user.Id);
-            if (!rolesForUser.Contains(role.Name))
-            {
-                var result = userManager.AddToRole(user.Id, role.Name);
-            }
-        }
+        //    var rolesForUser = userManager.GetRoles(user.Id);
+        //    if (!rolesForUser.Contains(role.Name))
+        //    {
+        //        var result = userManager.AddToRole(user.Id, role.Name);
+        //    }
+        //}
          
     }
 }

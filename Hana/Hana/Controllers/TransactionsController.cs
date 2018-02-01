@@ -17,7 +17,7 @@ namespace Hana.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            var transactions = db.Transactions.Include(t => t.CreditCard).Include(t => t.Customer);
+            var transactions = db.Transactions.Include(t => t.CreditCard).Include(t => t.Customer).Include(t => t.Product);
             return View(transactions.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace Hana.Controllers
         {
             ViewBag.CreditCardID = new SelectList(db.CreditCards, "CreditCardID", "Cardholder");
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Name");
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace Hana.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionID,CustomerID,CreditCardID,Total,Time")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "TransactionID,CustomerID,CreditCardID,ProductID,Total,Time")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,7 @@ namespace Hana.Controllers
 
             ViewBag.CreditCardID = new SelectList(db.CreditCards, "CreditCardID", "Cardholder", transaction.CreditCardID);
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Name", transaction.CustomerID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName", transaction.ProductID);
             return View(transaction);
         }
 
@@ -77,6 +79,7 @@ namespace Hana.Controllers
             }
             ViewBag.CreditCardID = new SelectList(db.CreditCards, "CreditCardID", "Cardholder", transaction.CreditCardID);
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Name", transaction.CustomerID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName", transaction.ProductID);
             return View(transaction);
         }
 
@@ -85,7 +88,7 @@ namespace Hana.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionID,CustomerID,CreditCardID,Total,Time")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "TransactionID,CustomerID,CreditCardID,ProductID,Total,Time")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +98,7 @@ namespace Hana.Controllers
             }
             ViewBag.CreditCardID = new SelectList(db.CreditCards, "CreditCardID", "Cardholder", transaction.CreditCardID);
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Name", transaction.CustomerID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName", transaction.ProductID);
             return View(transaction);
         }
 
