@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Administrator Product View";
 }
-<div class="col-md-12" style="padding-top: 15vh">
+<div class="col-md-10" style="padding-top: 15vh">
     <h2>Manage Product Catalogue</h2>
 
     <p>
@@ -25,6 +25,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(m => m.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.IsSoldOut)
             </th>
             <th>
                 @Html.DisplayNameFor(m => m.LastUpdated)
@@ -64,4 +67,7 @@
             </tr>
         }
     </table>
+    <div>
+        @Html.ActionLink("Return to Product Manager", "Index", "Admin")
+    </div>
 </div>

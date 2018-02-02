@@ -10,6 +10,7 @@ namespace Hana.Models
     public class OrderedProduct
     {
         public int OrderedProductID { get; set; }
+        public virtual ICollection<Product> Queue {get; set;}
         public virtual Product Product { get; set; }
         [Column(Order = 0)]
         public int ProductID { get; set; }

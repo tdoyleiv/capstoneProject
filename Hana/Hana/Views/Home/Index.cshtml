@@ -17,6 +17,7 @@
             <li data-target="#homeCarousel" data-slide-to="3"></li>
             <li data-target="#homeCarousel" data-slide-to="4"></li>
             <li data-target="#homeCarousel" data-slide-to="5"></li>
+            <li data-target="#homeCarousel" data-slide-to="6"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -37,26 +38,31 @@
             <div class="item">
                 <img src="~/Content/Images/deer.jpg" alt="Sixth slide" />
             </div>
+            <div class="item">
+                <img src="~/Content/Images/train.jpg" alt="Seventh slide" />
+            </div>
         </div>
     </div>
 </div>
 <div class="row" style="padding-top: 25px">
+    <hr />
     <div class="col-md-4">
-        <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Boutique</h2>
+        <h2 style="font-family: 'Cabin', sans-serif">B O U T I Q U E</h2>
         <p>Siquis in hoc artem populo non novit amandi, Hoc legat et lecto carmine doctus amet.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Index", "StoreFront")">S H O P</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "StoreFront")">S H O P . C A T A L O G U E</a></p>
     </div>
     <div class="col-md-4">
-        <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Design</h2>
+        <h2 style="font-family: 'Cabin', Arial, sans-serif">D E S I G N</h2>
         <p>Arte citae veloque rates remoque moventur, Arte leves currus: arte regendus amor.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">S E E</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Issues")">T H I S . I S S U E</a></p>
     </div>
     <div class="col-md-4">
-        <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Catalogue</h2>
-        <p>Curribus Automedon lentisque erat aptus habenis, Tiphys in Haemonia puppe magister erat</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">J O U R N E Y</a></p>
+        <h2 style="font-family: 'Cabin', 'Arial Narrow', Arial, sans-serif">P O R T F O L I O</h2>
+        <p>Curribus Automedon lentisque erat aptus habenis, Tiphys in Haemonia puppe magister erat.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "PastIssues")">P A S T . I S S U E S</a></p>
     </div>
 </div>
+<hr />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"

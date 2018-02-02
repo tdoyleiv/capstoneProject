@@ -16,7 +16,7 @@
     <RootNamespace>Hana</RootNamespace>
     <AssemblyName>Hana</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
+    <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -213,6 +213,7 @@
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmailAddressesController.cs" />
+    <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\OrderedProductsController.cs" />
     <Compile Include="Controllers\PhoneNumbersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -223,37 +224,16 @@
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
-    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ZIPsController.cs" />
     <Compile Include="Classes\Keys.cs" />
-    <Compile Include="Migrations\201801231625578_Recreate.cs" />
-    <Compile Include="Migrations\201801231625578_Recreate.Designer.cs">
-      <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
+    <Compile Include="Migrations\201802021449442_Reinit.cs" />
+    <Compile Include="Migrations\201802021449442_Reinit.Designer.cs">
+      <DependentUpon>201802021449442_Reinit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801241621317_Update.cs" />
-    <Compile Include="Migrations\201801241621317_Update.Designer.cs">
-      <DependentUpon>201801241621317_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251525337_Edit.cs" />
-    <Compile Include="Migrations\201801251525337_Edit.Designer.cs">
-      <DependentUpon>201801251525337_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251949347_edit-product.cs" />
-    <Compile Include="Migrations\201801251949347_edit-product.Designer.cs">
-      <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801302056409_ExtendID.cs" />
-    <Compile Include="Migrations\201801302056409_ExtendID.Designer.cs">
-      <DependentUpon>201801302056409_ExtendID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801310013147_OrderNo.cs" />
-    <Compile Include="Migrations\201801310013147_OrderNo.Designer.cs">
-      <DependentUpon>201801310013147_OrderNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801312113098_UserForeignKeytoCustomer.cs" />
-    <Compile Include="Migrations\201801312113098_UserForeignKeytoCustomer.Designer.cs">
-      <DependentUpon>201801312113098_UserForeignKeytoCustomer.cs</DependentUpon>
+    <Compile Include="Migrations\201802021628305_Add.cs" />
+    <Compile Include="Migrations\201802021628305_Add.Designer.cs">
+      <DependentUpon>201802021628305_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -266,10 +246,6 @@
     <Compile Include="Models\EmailAddress.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801222028354_Init.cs" />
-    <Compile Include="Migrations\201801222028354_Init.Designer.cs">
-      <DependentUpon>201801222028354_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -370,9 +346,11 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\StoreFront\Store.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Issues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Icons\" />
     <Folder Include="Content\Images\Products\" />
     <Folder Include="Views\BillingAddresses\" />
     <Folder Include="Views\Cities\" />
@@ -398,29 +376,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801222028354_Init.resx">
-      <DependentUpon>201801222028354_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802021449442_Reinit.resx">
+      <DependentUpon>201802021449442_Reinit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231625578_Recreate.resx">
-      <DependentUpon>201801231625578_Recreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801241621317_Update.resx">
-      <DependentUpon>201801241621317_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251525337_Edit.resx">
-      <DependentUpon>201801251525337_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251949347_edit-product.resx">
-      <DependentUpon>201801251949347_edit-product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801302056409_ExtendID.resx">
-      <DependentUpon>201801302056409_ExtendID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801310013147_OrderNo.resx">
-      <DependentUpon>201801310013147_OrderNo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801312113098_UserForeignKeytoCustomer.resx">
-      <DependentUpon>201801312113098_UserForeignKeytoCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802021628305_Add.resx">
+      <DependentUpon>201802021628305_Add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,7 +10,7 @@ namespace Hana.Models
     {
         ApplicationDbContext db = new ApplicationDbContext();
         public string CartID { get; set; }
-        public const string CartSessionKey = "shoppingcartID";
+        public static string CartSessionKey = "shoppingCartID";
         public static Cart GetCart(HttpContextBase context)
         {
             var cart = new Cart();
@@ -24,6 +24,7 @@ namespace Hana.Models
         public void AddtoCart(Product product)
         {
             var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.SessionID == CartID && c.ProductID == product.ProductID);
+            var item = db.Products.Find(product.ProductID);
             if (cartItem == null)
             {
                 cartItem = new ShoppingCart
@@ -33,11 +34,27 @@ namespace Hana.Models
                     Count = 1,
                     DateCreated = DateTime.Now
                 };
-                db.ShoppingCarts.Add(cartItem);
+                if (!item.IsSoldOut)
+                {
+                    item.Quantity--;
+                    if (item.Quantity == 0)
+                    {
+                        item.IsSoldOut = true;
+                    }
+                    db.ShoppingCarts.Add(cartItem);
+                }
             }
             else
             {
-                cartItem.Count++;
+                if (item.IsSoldOut)
+                {
+                    cartItem.Count++;
+                    item.Quantity--;
+                    if (item.Quantity == 0)
+                    {
+                        item.IsSoldOut = true;
+                    }
+                }
             }
             db.SaveChanges();
         }
@@ -114,7 +131,8 @@ namespace Hana.Models
                 }
                 else
                 {
-                    Guid tempCartID = Guid.NewGuid();
+                    Guid tempCartID;
+                    tempCartID = Guid.NewGuid();
                     context.Session[CartSessionKey] = tempCartID.ToString();
                 }
             }

@@ -93,6 +93,9 @@ namespace Hana.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        [Display(Name = "Subscribe for our monthly newsletter?")]
+        public bool IsSubscribed { get; set; }
     }
 
     public class ResetPasswordViewModel

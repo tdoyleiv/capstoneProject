@@ -75,8 +75,17 @@
         </dd>
     </dl>
 </div>
-<p>
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Return to Cart", "Index", "Cart")
+    </p>
+}
 

@@ -1,44 +1,58 @@
-﻿
+﻿@model Hana.Models.Product
 @{
     ViewBag.Title = "Store Front";
 }
-
-@{
-    ViewBag.Title = "Welcome";
-}
-<div class="slider hidden-xs">
-    <ul class="rslides">
-        <li><img src="~/Content/" alt="" /></li>
-        <li><img src="~/Content/" alt="" /></li>
-        <li><img src="~/Content/" alt="" /></li>
-    </ul>
+<div class="col-md-12" style="padding-top: 30vh; padding-bottom: 40vh">
+    <div class="slider hidden-xs">
+        <ul class="rslides">
+            <li><img src="~/Content/" alt="" /></li>
+            <li><img src="~/Content/" alt="" /></li>
+            <li><img src="~/Content/" alt="" /></li>
+        </ul>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/1">
+                    <h2>T O P S</h2>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/3">
+                    <h2>B O T T O M S</h2>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/4">
+                    <h2>S H O E S</h2>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/5">
+                    <h2>F O R M A L</h2>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/6">
+                    <h2>S W I M W E A R</h2>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="categorywrap">
+                <a href="~/StoreFront/Store/2">
+                    <h2>A C C E S S O R I E S</h2>
+                </a>
+            </div>
+        </div>
+        </div>
 </div>
-<br />
-<h3 class="text-center">Click on a category below to get started</h3><br />
-<div class="row">
-    <div class="col-md-4">
-        <div class="categorywrap">
-            <a href="~/StoreFront/Store/1">
-                <h2>The Top</h2>
-                <img src="~/Content/" alt="Tops" />
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="categorywrap">
-            <a href="~/StoreFront/Store/2">
-                <h2>The Bottom</h2>
-                <img src="~/Content/" alt="Bottoms" />
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="categorywrap">
-            <a href="~/StoreFront/Store/3">
-                <h2>Accessories</h2>
-                <img src="~/Content/" alt="Accessories" />
-            </a>
-        </div>
-    </div>
-</div>
-

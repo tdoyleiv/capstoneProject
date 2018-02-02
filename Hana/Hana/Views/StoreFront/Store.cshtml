@@ -3,77 +3,123 @@
 @{
     ViewBag.Title = @Model.Name;
 }
-
-<br />
-<br />
-<div class="row">
-    <div class="col-xs-12 col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-            @if (Model.Name == "Men")
+<div class="col-md-12" style="padding-top: 30vh; padding-bottom: 15vh">
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+                @if (Model.Name == "Tops")
             {
-                <li class="active">
-                    <a href="~/StoreFront/Store/1">Men's Apparel</a>
-                </li>
-            }
-            else
+                    <li class="active">
+                        <a href="~/StoreFront/Store/1">T O P S</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/1">T O P S</a>
+                    </li>
+                }
+                @if (Model.Name == "Bottoms")
             {
-                <li>
-                    <a href="~/StoreFront/Store/1">Men's Apparel</a>
-                </li>
-            }
-            @if (Model.Name == "Women")
+                    <li class="active">
+                        <a href="~/StoreFront/Store/3">B O T T O M S</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/3">B O T T O M S</a>
+                    </li>
+                }
+                @if (Model.Name == "Shoes")
             {
-                <li class="active">
-                    <a href="~/StoreFront/Store/2">Women's Apparel</a>
-                </li>
-            }
-            else
+                    <li class="active">
+                        <a href="~/StoreFront/Store/4">S H O E S</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/4">S H O E S</a>
+                    </li>
+                }
+                @if (Model.Name == "Formal")
             {
-                <li>
-                    <a href="~/StoreFront/Store/2">Women's Apparel</a>
-                </li>
-            }
-            @if (Model.Name == "Accessories")
+                    <li class="active">
+                        <a href="~/StoreFront/Store/5">F O R M A L</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/5">F O R M A L</a>
+                    </li>
+                }
+                @if (Model.Name == "Swimwear")
             {
-                <li class="active">
-                    <a href="~/StoreFront/Store/3">Accessories</a>
-                </li>
-            }
-            else
+                    <li class="active">
+                        <a href="~/StoreFront/Store/6">S W I M W E A R</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/6">S W I M W E A R</a>
+                    </li>
+                }
+                @if (Model.Name == "Accessories")
             {
-                <li>
-                    <a href="~/StoreFront/Store/3">Accessories</a>
-                </li>
-            }
-        </ul>
-    </div>
-    <div class="col-xs-12 col-md-9">
-        <div class="row">
-            @foreach (var product in Model.Products)
+                    <li class="active">
+                        <a href="~/StoreFront/Store/2">A C C E S S O R I E S</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/StoreFront/Store/2">A C C E S S O R I E S</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <div class="row">
+                @foreach (var product in Model.Products)
             {
-                <div class="col-xs-12 col-md-4">
-                    <div class="thumbnail">
-                        <img class="img-responsive" src="~/Content/Images/Products/@(product.ProductName).png">
-                        <div class="caption text-center">
-                            <p>
-                                <b>Name:</b> <span>@product.ProductName</span>
-                            </p>
-                            <p>
-                                <b>About:</b> <span>@product.ProductDescription</span>
-                            </p>
-                            <p>
-                                <b>Price:</b> <span>@product.Price USD</span>
-                            </p>
-                            <p>
-                                <b>Size:</b> <span>@Html.DropDownListFor(p => p.Products, new SelectList(product.Size.Name))</span>
-                            </p>
-                            <p class="text-center">
-                                @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { id = product.ProductID }, new { @class = "btn btn-info" })
-                            </p>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="thumbnail" style="height:70vh">
+                            <img class="img-responsive" src="~/Content/Images/Products/@(product.ProductName).jpg">
+                            <div class="caption text-left">
+                                <p>
+                                    <b>Name:</b> <span>@product.ProductName</span>
+                                </p>
+                                <p>
+                                    <b>About:</b> <span>@product.ProductDescription</span>
+                                </p>
+                                <p>
+                                    <b>Price:</b> <span>@product.Price USD</span>
+                                </p>
+                                @if (product.Quantity == 0)
+                                {
+                                    <p style="text-decoration-color: red">
+                                        <b>Sold out!</b>
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>
+                                        <b>Amount Available:</b> <span>@product.Quantity</span>
+                                    </p>
+                                }
+                                <p class="text-center">
+                                    @Html.ActionLink("A D D . T O . C A R T", "AddToCart", "Cart", new { id = product.ProductID }, new { @class = "btn btn-success", @style = "position:absolute ; bottom: 35px ; right:75px ;margin:0 ;padding:5px 3px"})
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </div>

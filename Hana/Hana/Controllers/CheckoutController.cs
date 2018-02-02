@@ -26,7 +26,6 @@ namespace Hana.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult AddressAndPayment(FormCollection values)
         {
             var order = new Transaction();
@@ -39,14 +38,30 @@ namespace Hana.Controllers
                 }
                 else
                 {
-                    order.Customer.Name = User.Identity.Name;
+                    order.Email = User.Identity.Name;
                     order.Time = DateTime.Now;
-                    db.Transactions.Add(order);
-                    db.SaveChanges();
+                    order.OrderNumber = Guid.NewGuid();
                     var cart = Cart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
-                    db.SaveChanges();
-                    return RedirectToAction("Complete", new { id = order.TransactionID });
+                    order.TransactionID = cart.CreateOrder(order);
+                    var orderedProduct = db.OrderedProducts.Where( o => o.TransactionID == order.TransactionID);
+                    foreach (var item in orderedProduct)
+                    {
+                        order.ProductID = item.ProductID;
+                    }
+                    foreach (var value in values)
+                    {
+                        order.FirstName = values["FirstName"];
+                        order.LastName = values["LastName"];
+                        order.Street = values["Street"];
+                        order.City = values["City"];
+                        order.State = values["State"];
+                        order.PostalCode = values["PostalCode"];
+                        order.Country = values["Country"];
+                        order.Phone = values["Phone"];
+                    }
+                        db.Transactions.Add(order);
+                        db.SaveChanges();
+                        return RedirectToAction("Complete", new { id = order.TransactionID });
                 }
             }
             catch (Exception e)
@@ -58,7 +73,7 @@ namespace Hana.Controllers
         public ActionResult Complete(int id)
         {
             EmailParameterAssembler emailAssembler = new EmailParameterAssembler();
-            bool iSValid = db.Transactions.Any(o => o.TransactionID == id && o.Customer.Name == User.Identity.Name);
+            bool iSValid = db.Transactions.Any(o => o.TransactionID == id);
             if (iSValid)
             {
                 string orderID = emailAssembler.GetOrderID(id);

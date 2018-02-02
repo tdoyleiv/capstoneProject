@@ -15,12 +15,26 @@ li {
     font-family: "Cabin", sans-serif;
     color: white;
 }
+.table tr td{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 50px;
+    text-wrap: normal;
+}
+thumbnail {
+    height: auto;
+}
 
-h1,h2,h3,h4,h5,p,span,th,dt,thead {
+td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 50px;
+}
+h1,h2,h3,h4,h5,p,span,th,dt,thead,address, span {
     font-family: "Cabin", sans-serif;
     color: black;
 }
-p,tbody,dd,td {
+p,tbody,dd,td,a {
     font-family:'Times New Roman', Times, serif;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -32,14 +46,15 @@ p,tbody,dd,td {
 
 .carousel-inner .item img {
     margin: 0 auto;
-    height: 200vh;
+    height: 190vh;
     width: 250vh;
     /*border-radius: 55px 55px 55px 55px;*/
 }
 .container-fluid {
     position: relative;
-    left: -28px;
-    max-height: 220px
+    left: -30px;
+    max-height: 220px;
+    max-width: 1934px;
 }
 .dl-horizontal:before,
 .dl-horizontal:after {
@@ -52,7 +67,7 @@ p,tbody,dd,td {
   clear: both;
 }
 
-.dl-horizontal dt {
+.dl-horizontal dt{
     white-space: normal;
     float: left;
     clear: left;
@@ -61,6 +76,10 @@ p,tbody,dd,td {
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+dt {
+
 }
 
 .dl-horizontal dd {
