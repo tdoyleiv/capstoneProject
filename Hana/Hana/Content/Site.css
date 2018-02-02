@@ -33,12 +33,12 @@ p,tbody,dd,td {
 .carousel-inner .item img {
     margin: 0 auto;
     height: 200vh;
-    width: 300vh;
+    width: 250vh;
     /*border-radius: 55px 55px 55px 55px;*/
 }
 .container-fluid {
     position: relative;
-    left: -30px;
+    left: -28px;
     max-height: 220px
 }
 .dl-horizontal:before,
