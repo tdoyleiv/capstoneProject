@@ -4,9 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Hana</title>
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+          crossorigin="anonymous">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
 
 </head>
@@ -19,63 +23,79 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Hana", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <b>@Html.ActionLink("英", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("A B O U T", "About", "Home")</li>
+                    <li>@Html.ActionLink("C O N T A C T", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("S H O P", "Index", "StoreFront")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li>@{Html.RenderAction("CartSummary", "Cart");}</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p class="text-center"> Developed by <a href="https://www.linkedin.com/in/thomas-f-doyle-iv-39524856/" target="_new">TFD IV</a> &copy; @DateTime.Now.Year - Hana                All Rights Reserved.</p>
-        </footer>
+        <div class="container-fluid" >
+            <div class="row-fluid content">
+                <div class="col-xs-1">
+                   <img src="~/Content/Images/HANALogo.png" />
+                </div>
+            </div>
+        </div>
+        <div class="container body-content" style="padding-bottom: 5vh">
+            @RenderBody()
+        </div>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-collapse collapse" style="text-align:center; display:inline-block">
+                <ul class="nav navbar-nav" style="text-align: center; display: inline-block; float: none; vertical-align: top; padding-top:15px">
+                    <li style="padding-right:10vh">R E S O R T  .  M M V I I I</li>
+                    <li style="padding-right:10vh">H A N A  .  B O U T I Q U E</li>
+                    <li>8 0 0 . 2 6 3 . 3 0 6 2</li>
+                </ul>
+            </div>
+        </div>
     </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        <script src="~/Content/Js/ResponsiveSlider.js"></script>
+        <script type="text/javascript">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    <script src="~/Content/Js/ResponsiveSlider.js"></script>
-    <script type="text/javascript">
+            $(".rslides").responsiveSlides({
+                auto: true, // Boolean: Animate automatically, true or false
+                speed: 500 // Integer: Speed of the transition, in milliseconds
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".RemoveLink").click(function (e) {
+                    e.preventDefault();
+                    // Get the id from the link
+                    var recordToDelete = $(this).attr("data-id");
+                    if (recordToDelete != '') {
+                        // Perform the ajax post
+                        $.post("/Cart/RemoveFromCart", { "id": recordToDelete },
+                            function (data) {
+                                // Successful requests get here
+                                // Update the page elements
+                                if (data.ItemCount == 0) {
+                                    $('#row-' + data.DeleteId).fadeOut('slow');
+                                } else {
+                                    $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                                }
+                                $('#cart-total').text(data.CartTotal);
+                                $('#update-message').text(data.Message);
+                                $('#cart-status').text('Cart (' + data.CartCount + ')');
+                            });
+                    }
+                });
+            })
 
-    $(".rslides").responsiveSlides({
-        auto: true, // Boolean: Animate automatically, true or false
-        speed: 500 // Integer: Speed of the transition, in milliseconds
-    });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".RemoveLink").click(function (e) {
-                e.preventDefault();
-            // Get the id from the link
-            var recordToDelete = $(this).attr("data-id");
-            if (recordToDelete != '') {
-                // Perform the ajax post
-                $.post("/Cart/RemoveFromCart", { "id": recordToDelete },
-                    function (data) {
-                        // Successful requests get here
-                        // Update the page elements
-                        if (data.ItemCount == 0) {
-                            $('#row-' + data.DeleteId).fadeOut('slow');
-                        } else {
-                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
-                        }
-                        $('#cart-total').text(data.CartTotal);
-                        $('#update-message').text(data.Message);
-                        $('#cart-status').text('Cart (' + data.CartCount + ')');
-                    });
-            }
-        });
-    })
-
-    </script>
+        </script>
 
 </body>
 </html>

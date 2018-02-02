@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Welcome, Administrator. Manage the store from here.</h1>
+    <br />
+    <h3>
+        @Html.ActionLink("Manage Product Types", "Index", "ProductTypes")
+        <br />
+        <br />
+        @Html.ActionLink("Manage Products", "Index", "Products")
+    </h3>
+}

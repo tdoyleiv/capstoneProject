@@ -12,8 +12,10 @@ namespace Hana.Models
     {
         [Key]
         public int ProductID { get; set; }
+        [Display(Name = "Product Type")]
         public ProductType ProductType { get; set; }
         public int ProductTypeID {get; set;}
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
         [StringLength(500)]
         public string ProductDescription { get; set; }
@@ -25,6 +27,7 @@ namespace Hana.Models
         [Display(Name = "Updated On")]
         [Column(TypeName = "datetime2")]
         public DateTime LastUpdated { get; set; }
+        [Display(Name = "Sold Out?")]
         public bool IsSoldOut { get; set; }
     }
 }

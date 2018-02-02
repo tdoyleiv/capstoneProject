@@ -1,28 +1,46 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
-.navbar-brand {
-    color: snow !important
+.navbar {
+    color: black !important;
 }
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+li {
+    font-family: "Cabin", sans-serif;
+    color: white;
+}
 
-h1,h2,h3,h4,h5,p,span,th,td,thead,tbody {
-    font-family: "Dosis", sans-serif
+h1,h2,h3,h4,h5,p,span,th,dt,thead {
+    font-family: "Cabin", sans-serif;
+    color: black;
+}
+p,tbody,dd,td {
+    font-family:'Times New Roman', Times, serif;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-
 .dl-horizontal {
   *zoom: 1;
 }
 
+.carousel-inner .item img {
+    margin: 0 auto;
+    height: 200vh;
+    width: 300vh;
+    /*border-radius: 55px 55px 55px 55px;*/
+}
+.container-fluid {
+    position: relative;
+    left: -30px;
+    max-height: 220px
+}
 .dl-horizontal:before,
 .dl-horizontal:after {
   display: table;
@@ -97,12 +115,12 @@ textarea {
 }
 
 .categorywrap {
-    border: 1px solid green;
+    border: 1px solid black;
 }
 
 .categorywrap h2 {
     text-align: center;
-    color: green
+    color: black;
 }
 
 .categorywrap img {
@@ -111,12 +129,12 @@ textarea {
 }
 
 .categorywraplast {
-    border: 1px solid green;
+    border: 1px solid black;
 }
 
 .categorywraplast h2 {
     text-align: center;
-    color: green;
+    color: black;
 }
 
 .categorywraplast img {
@@ -149,7 +167,7 @@ textarea {
 }
 
 /*navbar style*/
-.navbar-default {
+/*.navbar-default {
   background-color: #16450e;
   border-color: #070707;
 }
@@ -194,9 +212,9 @@ textarea {
 }
 .navbar-default .navbar-link:hover {
   color: #ecdbff;
-}
+}*/
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #ffffff;
   }
@@ -207,7 +225,10 @@ textarea {
     color: #ecdbff;
     background-color: #070707;
   }
-}
+  .container-fluid {
+
+  }
+}*/
 
 
 
